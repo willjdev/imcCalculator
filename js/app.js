@@ -1,16 +1,16 @@
 //CALCULO DE IMC
 
 function calculoPeso (altura, peso) { //Funcion para calcular imc y retornar el resultado
-    let calculo = peso / (Math.pow(altura, 2));
+    let calculo = (peso / (Math.pow(altura, 2))).toFixed(2);
     let imc = "";
     if (calculo < 18.5) {
-        imc = "Usted tiene bajo peso";
+        imc = "Su IMC es de " + calculo + " - Usted tiene bajo peso";
     } else if (calculo > 18.4 && calculo < 25) {
-        imc = "Usted tiene peso normal";
+        imc = "Su IMC es de " + calculo + " - Usted tiene peso normal";
     } else if (calculo > 24.9 && calculo < 30) {
-        imc = "Usted tiene sobrepeso";
+        imc = "Su IMC es de " + calculo + " - Usted tiene sobrepeso";
     } else if (calculo > 29.9){
-        imc = "Usted tiene obesidad";
+        imc = "Su IMC es de " + calculo + " - Usted tiene obesidad";
     }
     return imc;
 }

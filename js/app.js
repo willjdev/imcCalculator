@@ -1,4 +1,34 @@
-//CALCULO DE IMC
+//*********CALCULO DE IMC***********//
+
+let nombreUsuario, edadUsuario, pesoUsuario, alturaUsuario, verificacion, usuario; //Declaramos las variables
+
+let informacionUsuarios = []; //Inicializamos el arreglo que contendrá los objetos
+
+let ciclo = true; //Variable de control del ciclo
+
+class registroUsuarios { //Creamos el constructor de objetos, los cuales serán los usuarios
+    constructor(nombre, edad, altura, peso, imc) {
+        this.nombre = nombre.toUpperCase();
+        this.edad = edad;
+        this.altura = altura;
+        this.peso = peso;
+        this.imc = imc;
+    }
+}
+
+do { //Ciclo do while que pone en funcionamiento las funciones construidas y agrega los objetos al arreglo
+    verificarInformacion();
+    if(verificacion) {
+        let calculo = calculoPeso(alturaUsuario, pesoUsuario);
+        alert(calculo);
+        crearObjeto(nombreUsuario, edadUsuario, pesoUsuario, alturaUsuario, calculo);
+        informacionUsuarios.push(usuario);
+        ciclo = false;
+        console.log(informacionUsuarios);
+    }
+} while (ciclo === true);
+
+//FUNCIONES
 
 function calculoPeso (altura, peso) { //Funcion para calcular imc y retornar el resultado
     let calculo = (peso / (Math.pow(altura, 2))).toFixed(2);
@@ -15,18 +45,34 @@ function calculoPeso (altura, peso) { //Funcion para calcular imc y retornar el 
     return imc;
 }
 
-let ciclo = true; //Variable de control del ciclo
+function verificarInformacion () { //Función para verificar la validez de los datos suministrados
+    nombreUsuario = prompt("Ingrese su nombre");
+    edadUsuario = prompt("Ingrese su edad");
+    pesoUsuario = prompt("Ingrese su peso en kilogramos");
+    alturaUsuario = prompt("Ingrese su altura en metros");
 
-do { //Ciclo do while el cual es un bucle que no finaliza hasta que se ingresen datos validos
-    let alturaUsuario = prompt("Ingrese su altura en metros:");
-    let pesoUsuario = prompt("Ingrese su peso en kilogramos:");
-    if (isNaN(alturaUsuario) || isNaN(pesoUsuario)) {
-        alert("Ingrese un valor valido");
+    if (isNaN(edadUsuario) || isNaN(pesoUsuario) || isNaN(alturaUsuario)) {
+        alert("Ingrese información valida");
+        return verificacion = false;
     } else {
-        alert(calculoPeso(alturaUsuario, pesoUsuario));
-        ciclo = false;
+        verificacion = true;
+        return nombreUsuario, edadUsuario, pesoUsuario, alturaUsuario, verificacion;
     }
-} while (ciclo === true);
+}
+
+function crearObjeto (nombre, edad, peso, altura, imc) { //Funcion instanciadora de objetos usuario
+    usuario = new registroUsuarios(nombre, edad, peso, altura, imc);
+    return usuario;
+}
+
+
+
+
+
+
+
+
+
 
 
 

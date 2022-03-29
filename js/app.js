@@ -21,7 +21,7 @@ do { //Ciclo do while que pone en funcionamiento las funciones construidas y agr
     if(verificacion) {
         let calculo = calculoPeso(alturaUsuario, pesoUsuario);
         alert(calculo);
-        crearObjeto(nombreUsuario, edadUsuario, pesoUsuario, alturaUsuario, calculo);
+        crearObjeto(nombreUsuario, edadUsuario, alturaUsuario, pesoUsuario, calculo);
         informacionUsuarios.push(usuario);
         ciclo = false;
         console.log(informacionUsuarios);
@@ -60,8 +60,8 @@ function verificarInformacion () { //Función para verificar la validez de los d
     }
 }
 
-function crearObjeto (nombre, edad, peso, altura, imc) { //Funcion instanciadora de objetos usuario
-    usuario = new registroUsuarios(nombre, edad, peso, altura, imc);
+function crearObjeto (nombre, edad, altura, peso, imc) { //Funcion instanciadora de objetos usuario
+    usuario = new registroUsuarios(nombre, edad, altura, peso, imc);
     return usuario;
 }
 
